@@ -229,16 +229,21 @@ dsh plugin --profile web add github:MingGH/dsh-pin-top#v2.2.0
   plugin --profile desktop add github:MingGH/dsh-pin-top#v2.2.0
 ```
 
+安装后**重启** `dsh web` 或 DSH 桌面端，再到左侧 **「插件」** 页找到 `dsh-pin-top`，打开插件开关：
+`dsh plugin add` 只把包装进 profile，**启用开关**才会把它写进 `dsh.profile.bundles`、随组合加载。
+
 - 包名 `dsh-pin-top`；**仓库根就是插件包**（`package.json` 与 `cordis.patch.yml` 都在根），
   pnpm 的 git 依赖因此能直接解析到它。bundle patch 只插入一行 Host 行，`dsh.client` 声明 `web` 平台与四个注入依赖。
 - **首次安装后需重启一次应用**（Host 会缓存客户端包元数据）。
-- 更新：先 `dsh plugin --profile desktop remove dsh-pin-top`，再 `add` 新版本号（例如 `#v2.3.0`）。
+- 更新：先 `dsh plugin --profile desktop remove dsh-pin-top`，再 `add` 新版本号（例如 `#v2.3.0`），然后重启。
+  包名没变，`dsh.profile.bundles` 里的条目会继续生效，无需重新开启。
 - 之后只改 `client.js` **不用重启**：Host 会 stat 轮询客户端产物并通过 `/plugins/events` SSE 推送 `rebuilt`，
   浏览器热替换该模块（刷新页面最稳）。
 - **改 `index.js`（Host 半边）必须重启。** 从旧的「文本标签」版本升级上来时，路由已由 `/pin-top/tags` 变为
   `/pin-top/labels`：重启之前客户端取不到数据，右键菜单会显示「标签颜色（重启应用后可用）」，
   置顶区与定位/收起/展开不受影响。
-- 卸载：`dsh plugin --profile desktop remove dsh-pin-top`。
+- 卸载：`dsh plugin --profile desktop remove dsh-pin-top`，并在「插件」页关掉开关（或从 profile 的
+  `dsh.profile.bundles` 移除 `dsh-pin-top`）。
 - 本地源码调试：`dsh plugin --profile desktop add file:<本仓库绝对路径>`（改源码后重装才生效），
   或用 DSH 的 `plugin_manager` `install_bundle`，target = 本仓库根目录。
 
