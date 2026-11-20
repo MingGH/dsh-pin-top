@@ -1,5 +1,5 @@
 /**
- * Host half of the `@local/pin-top` bundle.
+ * Host half of the `dsh-pin-top` bundle.
  *
  * The Client half owns every pixel; this half owns exactly one thing: the
  * durable colour-label store behind two small HTTP routes on the Host's own web

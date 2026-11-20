@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/pin-top',
+  id: 'dsh-pin-top',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
@@ -11,7 +11,7 @@ window.__ModuleLoader__.load({
     /** Host route owned by this bundle's Host half. */
     const LABELS_ROUTE = '/pin-top/labels';
     /** Style tag identity, so a reload keeps one stylesheet. */
-    const STYLE_ID = '@local/pin-top/styles';
+    const STYLE_ID = 'dsh-pin-top/styles';
     /** Key prefix of the swatches this plugin contributes to `contextMenu.icon`. */
     const ICON_PREFIX = 'pin-top.label.';
     /** Swatch shown for "no label" and by the submenu's own row. */
@@ -269,7 +269,7 @@ window.__ModuleLoader__.load({
     function installStyles() {
       if (typeof document === 'undefined') return () => {};
       const tag = document.createElement('style');
-      tag.dataset.plugin = '@local/pin-top';
+      tag.dataset.plugin = 'dsh-pin-top';
       tag.dataset.pluginCss = STYLE_ID;
       tag.textContent = CSS;
       document.head.appendChild(tag);

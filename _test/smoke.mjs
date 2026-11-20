@@ -1,5 +1,5 @@
 /**
- * Offline smoke test for the @local/pin-top bundle.
+ * Offline smoke test for the dsh-pin-top bundle.
  *
  * It evaluates the real client.js inside a minimal stand-in for the browser
  * module loader (a React stub plus a recording Cordis context), then exercises
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const pluginDir = join(here, '..', 'plugin');
+const pluginDir = join(here, '..');
 const code = await readFile(join(pluginDir, 'client.js'), 'utf8');
 const pkg = JSON.parse(await readFile(join(pluginDir, 'package.json'), 'utf8'));
 const zh = JSON.parse(await readFile(join(pluginDir, 'locale', 'zh.json'), 'utf8'));
@@ -1492,7 +1492,7 @@ check(
   css.includes('[data-pintop-located]{animation:pintop-located 1.2s ease-out}')
     && css.includes('prefers-reduced-motion:reduce){[data-pintop-located]{animation:none;box-shadow:inset 0 0 0 2px var(--dsw-alias-brand-primary)}}'),
 );
-check('stylesheet is tagged as plugin-owned', code.includes("tag.dataset.plugin = '@local/pin-top'"));
+check('stylesheet is tagged as plugin-owned', code.includes("tag.dataset.plugin = 'dsh-pin-top'"));
 
 /* ---------------- boot safety: missing services / failing ledger ---------------- */
 
@@ -1573,7 +1573,7 @@ check('apply swallows an activation failure instead of aborting boot', hostileFa
 const hostHome = join(here, '.tmp-host');
 await rm(hostHome, { recursive: true, force: true });
 process.env.DSH_HOME = hostHome;
-const hostModule = await import('../plugin/index.js');
+const hostModule = await import('../index.js');
 check('the Host half exports apply', typeof hostModule.apply === 'function');
 check(
   'both halves share one palette',

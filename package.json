@@ -1,10 +1,19 @@
 {
-  "name": "@local/pin-top",
-  "version": "1.0.0",
+  "name": "dsh-pin-top",
+  "version": "2.2.0",
   "private": true,
   "license": "MIT",
   "type": "module",
-  "description": "Sidebar enhancements: pinned conversations, macOS-style colour labels, and collapse/expand-all for the workspace groups.",
+  "description": "Sidebar enhancements for DeepSeek Harness: pinned conversations, macOS-style colour labels, and collapse/expand-all for the workspace groups.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MingGH/dsh-pin-top.git"
+  },
+  "homepage": "https://github.com/MingGH/dsh-pin-top#readme",
+  "bugs": "https://github.com/MingGH/dsh-pin-top/issues",
+  "engines": {
+    "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -17,8 +26,14 @@
     "client.js",
     "cordis.patch.yml",
     "locale/*.json",
-    "icon.svg"
+    "icon.svg",
+    "docs",
+    "README.md",
+    "LICENSE"
   ],
+  "scripts": {
+    "test": "node _test/smoke.mjs"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
