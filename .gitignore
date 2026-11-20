@@ -1,0 +1,11 @@
+# macOS Finder
+.DS_Store
+
+# local package-manager cache
+.pnpm-store/
+
+# node
+node_modules/
+
+# smoke-test scratch directory (created by _test/smoke.mjs)
+_test/.tmp-host/

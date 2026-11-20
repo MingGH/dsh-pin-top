@@ -1,0 +1,3 @@
+- insert:
+    - id: pin-top
+      name: '@local/pin-top'

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Sidebar extras: pinned, colour labels, locate/collapse/expand",
+    "description": "Puts pinned conversations at the top of the left sidebar (one row each, one-click open, in-row unpin); right-click any session for a macOS-style colour label that pins it and shows a matching dot; and adds three workspace-header buttons: locate the current session, collapse all, expand all."
+  }
+}
