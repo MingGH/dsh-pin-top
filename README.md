@@ -214,7 +214,9 @@
 
 ## 安装与生效
 
-从 GitHub 直接安装（`dsh plugin` 会把参数转交给 profile 目录里的 pnpm，和装其它 DSH 插件一样）：
+从 GitHub 直接安装，两种方式任选。
+
+**命令行**（`dsh plugin` 会把参数转交给 profile 目录里的 pnpm，和装其它 DSH 插件一样）：
 
 ```
 # Web 端
@@ -229,7 +231,11 @@ dsh plugin --profile web add github:MingGH/dsh-pin-top#v2.2.0
   plugin --profile desktop add github:MingGH/dsh-pin-top#v2.2.0
 ```
 
-安装后**重启** `dsh web` 或 DSH 桌面端，再到左侧 **「插件」** 页找到 `dsh-pin-top`，打开插件开关：
+**图形界面**：左侧 **「插件」** 页 →「添加插件」→ 粘贴 `github:MingGH/dsh-pin-top#v2.2.0` → 安装：
+
+![添加插件对话框：粘贴 GitHub 地址](docs/screenshots/install-dialog.png)
+
+安装后**重启** `dsh web` 或 DSH 桌面端，再到左侧 **「插件」** 页确认 `dsh-pin-top` 的开关是打开的：
 `dsh plugin add` 只把包装进 profile，**启用开关**才会把它写进 `dsh.profile.bundles`、随组合加载。
 
 - 包名 `dsh-pin-top`；**仓库根就是插件包**（`package.json` 与 `cordis.patch.yml` 都在根），
@@ -258,7 +264,7 @@ locale/{zh,en}.json   # 插件展示元数据（meta.title / meta.description）
 icon.svg              # 原创图钉图标
 docs/
   header-glyphs.png   # 三个标题栏按钮图标的渲染预览（README 插图）
-  screenshots/        # 实机截图：置顶区、颜色标签、标题栏按钮（README 插图）
+  screenshots/        # 实机截图：置顶区、颜色标签、标题栏按钮、安装对话框（README 插图）
 _test/
   smoke.mjs           # 离线冒烟测试：假模块加载器 / Cordis 上下文 / React / 可观察 store / fetch / DOM
 README.md
