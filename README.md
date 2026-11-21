@@ -1,5 +1,7 @@
 # dsh-pin-top
 
+[English](README.en.md) | 中文
+
 DSH（DeepSeek Harness）插件：侧边栏置顶会话、macOS 式颜色标签、工作区定位与收起/展开。
 
 ![侧边栏置顶区](docs/screenshots/pinned-section.png)
