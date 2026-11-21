@@ -29,6 +29,8 @@
     "icon.svg",
     "docs",
     "README.md",
+    "README.en.md",
+    "screenshots.json",
     "LICENSE"
   ],
   "scripts": {
