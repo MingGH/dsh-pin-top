@@ -1,13 +1,13 @@
 # dsh-pin-top
 
-A DeepSeek Harness (DSH) plugin: pinned conversations in the sidebar, macOS-style colour labels, and locate / collapse / expand controls for workspaces.
+A DeepSeek Harness (DSH) plugin: gathers the harness's own pinned sessions into a dedicated sidebar section, and adds macOS-style colour labels plus workspace navigation buttons.
 
 English | [中文](README.md)
 
 ![Pinned section in the sidebar](docs/screenshots/pinned-section.png)
 
-1. **Pinned conversations in the sidebar** — pinned sessions sit at the top, one row each, opening in a single click.
-2. **Colour labels** — right-click any session, pick a colour; it pins itself and the row tint and dot follow.
+1. **Pinned sessions gathered** — reads DSH's own `pinnedSessionIds` and shows each pinned session as a row in its own sidebar section, opened in a single click. Pinning and unpinning still go through the harness's menu item and hover pin; this plugin keeps no second copy of that state.
+2. **Colour labels** — right-click any session to pick a colour; it pins the session through the harness's own `pinSession`, and the row tint and dot follow.
 3. **Three header buttons** — locate the current session, collapse all, expand all.
 
 The three parts are independent: a missing service degrades only its own feature and never keeps the host from booting.
